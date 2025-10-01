@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products</title>
+</head>
+<body>
+<h1>Product List</h1>
+<ul>
+    <li th:each="product : ${products}">
+        <span th:text="${product.name}"></span> -
+        <span th:text="${product.price}"></span> USD
+        <span th:if="${product.inStock}" style="color:green">(In stock)</span>
+        <span th:unless="${product.inStock}" style="color:red">(Out of stock)</span>
+    </li>
+</ul>
+</body>
+</html>
