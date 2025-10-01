@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Default Title</title>
+</head>
+<body>
+    <h1 th:text="${title}">Default Title</h1>
+
+    <!-- Conditional rendering -->
+    <p th:if="${showList}">Here are the users:</p>
+    <p th:unless="${showList}">No users to display.</p>
+
+    <!-- Looping -->
+    <ul>
+        <li th:each="name : ${names}" th:text="${name}">Default Name</li>
+    </ul>
+
+    <!-- Index + text together -->
+    <ol>
+        <li th:each="name, iterStat : ${names}">
+            <span th:text="${iterStat.index + 1}"></span>. 
+            <span th:text="${name}"></span>
+        </li>
+    </ol>
+</body>
+</html>
